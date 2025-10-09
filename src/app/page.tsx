@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, ChevronLeft, ChevronRight, Search, Filter, Star, Award, Crown } from 'lucide-react'
+import { Menu, X, ChevronLeft, ChevronRight, Search, Filter, Star, Award, Crown, ArrowLeft } from 'lucide-react'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home')
@@ -12,6 +12,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [showQuoteForm, setShowQuoteForm] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState('')
+  const [selectedProductDetail, setSelectedProductDetail] = useState<any>(null)
   const [formData, setFormData] = useState({
     name: '',
     product: '',
@@ -27,6 +28,7 @@ export default function Home() {
   // Função para redirecionar para o topo quando trocar de aba
   const handleTabChange = (tab: string) => {
     setActiveTab(tab)
+    setSelectedProductDetail(null) // Reset product detail when changing tabs
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -42,6 +44,18 @@ export default function Home() {
     setSelectedProduct(productName)
     setFormData({ ...formData, product: productName })
     setShowQuoteForm(true)
+  }
+
+  // Função para ver detalhes do produto
+  const handleViewProduct = (produto: any) => {
+    setSelectedProductDetail(produto)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  // Função para voltar à lista de produtos
+  const handleBackToProducts = () => {
+    setSelectedProductDetail(null)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   // Função para enviar para WhatsApp
@@ -69,6 +83,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Design escultural em aço inox escovado, madeira nobre e madrepérolas. Inspirada em Calatrava, com formas geométricas marcantes e acabamento sofisticado.",
       descricaoCompleta: "A Mesa de Bilhar Opal representa o ápice da sofisticação no entretenimento de luxo. Seu design escultural em aço inox escovado combina perfeitamente com elementos de madeira nobre selecionada e detalhes em madrepérolas que conferem um brilho único. Inspirada na arquitetura de Santiago Calatrava, apresenta formas geométricas marcantes que criam uma presença imponente em qualquer ambiente. Cada detalhe foi pensado para oferecer não apenas funcionalidade excepcional, mas também uma experiência visual incomparável.",
       caracteristicas: ["Aço inox escovado premium", "Madeira nobre selecionada", "Detalhes em madrepérolas", "Design inspirado em Calatrava", "Formas geométricas marcantes", "Acabamento artesanal"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,37m x 0,82m",
+        peso: "Aproximadamente 350kg",
+        material: "Aço inox escovado, madeira nobre, madrepérolas",
+        acabamento: "Premium artesanal",
+        garantia: "5 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta",
       imagem: "https://i.imgur.com/tbx14ho.jpg"
     },
@@ -80,6 +102,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Inspirada nos ângulos aerodinâmicos dos veículos europeus de ponta. Projetada com linhas elegantes em forma de V que remetem à precisão da engenharia automotiva de luxo.",
       descricaoCompleta: "A Mesa Zurita traz a elegância dos supercarros europeus para o mundo do bilhar. Suas linhas aerodinâmicas em forma de V criam uma silhueta única que combina velocidade visual com estabilidade funcional. O design sofisticado incorpora elementos que remetem à precisão da engenharia automotiva de luxo, resultando em uma peça que é tanto uma mesa de jogos quanto uma obra de arte contemporânea.",
       caracteristicas: ["Design aerodinâmico", "Linhas em forma de V", "Inspiração automotiva europeia", "Estrutura de alta precisão", "Acabamento premium", "Estética contemporânea"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,37m x 0,82m",
+        peso: "Aproximadamente 340kg",
+        material: "Aço carbono, acabamentos especiais",
+        acabamento: "Pintura automotiva premium",
+        garantia: "5 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta",
       imagem: "https://i.imgur.com/vSFS3BJ.jpg"
     },
@@ -91,6 +121,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Base de metal em formato de asas de borboletas com tampo de madeira nobre e elementos decorativos de madrepérolas que simbolizam transformação e elegância.",
       descricaoCompleta: "A Mesa Aurora captura a delicadeza e a força da natureza em seu design único. Sua base metálica esculpida em formato de asas de borboleta simboliza transformação e elegância, enquanto o tampo em madeira nobre proporciona a superfície de jogo perfeita. Os elementos decorativos em madrepérolas adicionam um toque de sofisticação que reflete a luz de forma mágica, criando uma atmosfera única em qualquer ambiente.",
       caracteristicas: ["Base em formato de asas de borboleta", "Tampo em madeira nobre", "Elementos em madrepérolas", "Design inspirado na natureza", "Estrutura metálica esculpida", "Jogo de luz único"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,37m x 0,82m",
+        peso: "Aproximadamente 360kg",
+        material: "Metal esculpido, madeira nobre, madrepérolas",
+        acabamento: "Artesanal com detalhes em madrepérolas",
+        garantia: "5 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta",
       imagem: "https://i.imgur.com/84N4iq9.jpg"
     },
@@ -102,6 +140,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Feita à mão com base curva abaulada em acrílico, juntas de níquel cromado e tabelas de jogo em couro natural. Uma obra-prima do artesanato contemporâneo.",
       descricaoCompleta: "A Mesa Citrino é uma obra-prima do artesanato contemporâneo. Sua base curva abaulada em acrílico de alta qualidade cria um efeito visual impressionante, como se a mesa flutuasse no ambiente. As juntas em níquel cromado garantem durabilidade e adicioam um brilho sofisticado, enquanto as tabelas em couro natural proporcionam o toque final de luxo e conforto durante o jogo.",
       caracteristicas: ["Base curva em acrílico premium", "Juntas de níquel cromado", "Tabelas em couro natural", "Produção artesanal", "Efeito visual flutuante", "Materiais de alta qualidade"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,37m x 0,82m",
+        peso: "Aproximadamente 320kg",
+        material: "Acrílico premium, níquel cromado, couro natural",
+        acabamento: "Artesanal com couro natural",
+        garantia: "5 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta",
       imagem: "https://i.imgur.com/qIkvoGG.jpg"
     },
@@ -113,6 +159,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Base assimétrica cria silhueta flutuante livre, envolvida de madeira nobre e elementos decorativos de madrepérolas que desafiam as convenções do design.",
       descricaoCompleta: "A Mesa Espinela desafia as convenções com sua base assimétrica que cria uma silhueta flutuante única. Esta ousadia no design é equilibrada pela nobreza da madeira selecionada que envolve toda a estrutura, criando um contraste harmonioso entre inovação e tradição. Os elementos decorativos em madrepérolas são estrategicamente posicionados para realçar as linhas arquitetônicas da peça.",
       caracteristicas: ["Base assimétrica inovadora", "Silhueta flutuante", "Madeira nobre envolvente", "Elementos em madrepérolas", "Design arquitetônico", "Equilíbrio visual único"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,37m x 0,82m",
+        peso: "Aproximadamente 370kg",
+        material: "Madeira nobre, madrepérolas, estrutura metálica",
+        acabamento: "Madeira nobre com madrepérolas",
+        garantia: "5 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta",
       imagem: "https://i.imgur.com/LvAecZ7.jpg"
     },
@@ -124,6 +178,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Detalhes em laser nas curvas do aço inox com elementos decorativos de madrepérolas nas tabelas de madeira nobre. A perfeição do minimalismo funcional.",
       descricaoCompleta: "A Mesa Âmbar representa a perfeição do minimalismo funcional. Os detalhes gravados a laser nas curvas do aço inox demonstram a precisão tecnológica aplicada ao design, enquanto os elementos de madrepérolas nas tabelas de madeira nobre adicionam sofisticação sem comprometer a simplicidade. É a escolha ideal para ambientes que valorizam a elegância discreta.",
       caracteristicas: ["Detalhes a laser no aço inox", "Design minimalista", "Tabelas em madeira nobre", "Elementos em madrepérolas", "Precisão tecnológica", "Elegância discreta"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,37m x 0,82m",
+        peso: "Aproximadamente 330kg",
+        material: "Aço inox com gravação laser, madeira nobre, madrepérolas",
+        acabamento: "Laser premium e madrepérolas",
+        garantia: "5 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta",
       imagem: "https://i.imgur.com/914OuJ9.jpg"
     },
@@ -135,6 +197,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Base aberta com curvas amplas em madeira nobre abaulada, elementos artesanais em madeira nobre.",
       descricaoCompleta: "A Mesa de Pebolim Berilo combina tradição e modernidade em um design atemporal. Sua base aberta com curvas amplas em madeira nobre abaulada proporciona não apenas estabilidade excepcional, mas também uma estética que complementa qualquer ambiente sofisticado. Os elementos artesanais em madeira nobre são trabalhados à mão por mestres artesãos, garantindo que cada peça seja única.",
       caracteristicas: ["Base aberta com curvas amplas", "Madeira nobre abaulada", "Elementos artesanais únicos", "Trabalho manual especializado", "Design atemporal", "Estabilidade excepcional"],
+      especificacoes: {
+        dimensoes: "1,40m x 0,75m x 0,90m",
+        peso: "Aproximadamente 80kg",
+        material: "Madeira nobre selecionada",
+        acabamento: "Artesanal em madeira nobre",
+        garantia: "3 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta"
     },
     {
@@ -145,6 +215,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Detalhes em laser nas curvas do aço inox com elegância inegável e estilo incontestável.",
       descricaoCompleta: "A Mesa de Pebolim Âmbar eleva o jogo tradicional a um novo patamar de sofisticação. Os detalhes gravados a laser nas curvas do aço inox criam padrões geométricos que capturam e refletem a luz de forma única. Cada elemento foi projetado para proporcionar não apenas funcionalidade superior, mas também uma presença visual que transforma qualquer ambiente em um espaço de entretenimento de luxo.",
       caracteristicas: ["Detalhes a laser exclusivos", "Curvas em aço inox", "Padrões geométricos únicos", "Jogo de luz sofisticado", "Funcionalidade superior", "Presença visual marcante"],
+      especificacoes: {
+        dimensoes: "1,40m x 0,75m x 0,90m",
+        peso: "Aproximadamente 85kg",
+        material: "Aço inox com gravação laser",
+        acabamento: "Laser premium",
+        garantia: "3 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta"
     },
     {
@@ -155,6 +233,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Base em aço inox escovado, madeira nobre e elementos artesanais, exemplo superior de formas geométricas contrastantes.",
       descricaoCompleta: "A Mesa de Pebolim Opal é uma obra de arte funcional que demonstra como o design pode elevar um jogo tradicional. Sua base em aço inox escovado proporciona durabilidade e um acabamento premium, enquanto os elementos em madeira nobre adicionam calor e sofisticação. Os detalhes artesanais criam formas geométricas contrastantes que resultam em uma peça verdadeiramente escultural.",
       caracteristicas: ["Base em aço inox escovado", "Elementos em madeira nobre", "Detalhes artesanais únicos", "Formas geométricas contrastantes", "Design escultural", "Funcionalidade premium"],
+      especificacoes: {
+        dimensoes: "1,40m x 0,75m x 0,90m",
+        peso: "Aproximadamente 90kg",
+        material: "Aço inox escovado, madeira nobre",
+        acabamento: "Premium escovado e madeira nobre",
+        garantia: "3 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta"
     },
     {
@@ -165,6 +251,14 @@ Aguardo retorno. Obrigado!`
       descricao: "O jogo perfeito para competições entre familiares e amigos.",
       descricaoCompleta: "A Mesa de Tênis Cobal foi projetada para proporcionar experiências inesquecíveis em família e entre amigos. Sua versatilidade permite tanto jogos casuais quanto competições mais sérias, sempre mantendo o padrão de qualidade Bretda. O design elegante se adapta perfeitamente a diferentes ambientes, desde salas de jogos residenciais até espaços corporativos de entretenimento.",
       caracteristicas: ["Design versátil", "Ideal para família e amigos", "Qualidade competitiva", "Adaptável a diferentes ambientes", "Construção durável", "Estética elegante"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,52m x 0,76m",
+        peso: "Aproximadamente 70kg",
+        material: "MDF de alta densidade, estrutura metálica",
+        acabamento: "Pintura especial anti-reflexo",
+        garantia: "2 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta"
     },
     {
@@ -175,6 +269,14 @@ Aguardo retorno. Obrigado!`
       descricao: "Tamanho olímpico, feita de acrílico de 15 mm, estética cristalina, forte e durável.",
       descricaoCompleta: "A Mesa de Tênis Citrino atende aos mais altos padrões internacionais com suas dimensões olímpicas oficiais. Construída com acrílico de 15 mm de espessura, oferece uma superfície de jogo excepcional com estética cristalina única. A transparência do material cria um efeito visual impressionante, enquanto a resistência garante durabilidade para uso intensivo. É a escolha perfeita para quem busca performance profissional com design sofisticado.",
       caracteristicas: ["Dimensões olímpicas oficiais", "Acrílico de 15 mm", "Estética cristalina", "Superfície de jogo premium", "Resistência excepcional", "Design transparente único"],
+      especificacoes: {
+        dimensoes: "2,74m x 1,52m x 0,76m (padrão olímpico)",
+        peso: "Aproximadamente 85kg",
+        material: "Acrílico premium 15mm",
+        acabamento: "Cristalino transparente",
+        garantia: "3 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta"
     },
     {
@@ -185,6 +287,14 @@ Aguardo retorno. Obrigado!`
       descricao: "O jogo perfeito para competições entre familiares e amigos.",
       descricaoCompleta: "O Shuffleboard Âmbar traz toda a tradição deste jogo clássico com o refinamento característico da Bretda. Sua presença imponente e design dinâmico fazem dele o centro de atenção em qualquer ambiente. Perfeito para reunir família e amigos em competições divertidas, combina funcionalidade excepcional com uma estética que impressiona. Cada detalhe foi pensado para proporcionar anos de entretenimento com estilo.",
       caracteristicas: ["Design imponente", "Tradição do jogo clássico", "Ideal para reuniões familiares", "Funcionalidade excepcional", "Estética impressionante", "Durabilidade superior"],
+      especificacoes: {
+        dimensoes: "4,27m x 0,51m x 0,81m",
+        peso: "Aproximadamente 150kg",
+        material: "Madeira nobre, estrutura reforçada",
+        acabamento: "Verniz premium",
+        garantia: "3 anos",
+        instalacao: "Incluída"
+      },
       preco: "Sob consulta"
     }
   ]
@@ -740,139 +850,215 @@ Aguardo retorno. Obrigado!`
     </div>
   )
 
-  const renderProdutos = () => (
-    <div className="min-h-screen bg-[#FEF7F2] pt-24">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-light text-[#2A2B26] mb-4">
-            Conheça nossos Produtos
-          </h1>
-          <p className="text-xl text-[#2A2B26]/80">
-            Descubra nossa coleção exclusiva de mesas de jogos premium
-          </p>
-        </div>
+  // Renderizar página individual do produto
+  const renderProductDetail = () => {
+    if (!selectedProductDetail) return null
 
-        {/* Filtros de Categoria */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categorias.map(categoria => (
-            <button
-              key={categoria.id}
-              onClick={() => setSelectedCategory(categoria.id)}
-              className={`px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${ 
-                selectedCategory === categoria.id
-                  ? 'bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white shadow-xl'
-                  : 'bg-white text-[#2A2B26] hover:bg-gradient-to-r hover:from-[#B4B5AC] hover:to-[#DEOEDA] hover:text-white border border-[#B4B5AC]/30 hover:shadow-lg'
-              }`}
-            >
-              {categoria.nome}
-            </button>
-          ))}
-        </div>
+    return (
+      <div className="min-h-screen bg-white pt-24">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          {/* Botão Voltar */}
+          <button
+            onClick={handleBackToProducts}
+            className="flex items-center gap-2 text-[#B4B5AC] hover:text-[#2A2B26] transition-colors mb-8"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Voltar aos Produtos</span>
+          </button>
 
-        {/* Produtos por Categoria - Seções Premium */}
-        <div className="space-y-20">
-          {categorias.filter(cat => selectedCategory === 'todos' || selectedCategory === cat.id).map(categoria => {
-            if (categoria.id === 'todos') return null
-            
-            const produtosCategoria = produtos.filter(p => p.categoria === categoria.id)
-            if (produtosCategoria.length === 0) return null
-
-            return (
-              <section key={categoria.id} className="space-y-16">
-                <div className="text-center">
-                  <h2 className="text-4xl md:text-5xl font-light text-[#2A2B26] mb-4">
-                    {categoria.nome}
-                  </h2>
-                  <div className="w-24 h-1 bg-[#B4B5AC] mx-auto"></div>
-                </div>
-
-                {/* Produtos da Categoria */}
-                <div className="space-y-20">
-                  {produtosCategoria.map((produto, index) => (
-                    <div key={produto.id} className={`grid lg:grid-cols-2 gap-16 items-center ${
-                      index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                    }`}>
-                      {/* Imagem do Produto */}
-                      <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                        <div className="relative group">
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#B4B5AC]/20 to-transparent rounded-3xl transform rotate-2 group-hover:rotate-3 transition-transform duration-500"></div>
-                          <div className="relative bg-white p-8 rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                            <div className="aspect-square rounded-2xl overflow-hidden">
-                              {produto.imagem ? (
-                                <img 
-                                  src={produto.imagem} 
-                                  alt={produto.nome}
-                                  className="w-full h-full object-cover"
-                                />
-                              ) : (
-                                <div className="w-full h-full bg-[#DEOEDA]/30 flex items-center justify-center">
-                                  <div className="text-center">
-                                    <div className="w-16 h-16 mx-auto mb-4 bg-[#B4B5AC]/30 rounded-full flex items-center justify-center">
-                                      <Crown className="w-8 h-8 text-[#B4B5AC]" />
-                                    </div>
-                                    <p className="text-[#2A2B26] text-xl font-semibold">{produto.nome}</p>
-                                    <p className="text-[#2A2B26]/60 text-sm">Imagem Premium</p>
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Imagem Grande do Produto */}
+            <div className="relative">
+              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                {selectedProductDetail.imagem ? (
+                  <img 
+                    src={selectedProductDetail.imagem} 
+                    alt={selectedProductDetail.nome}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#DEOEDA]/30 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-24 h-24 mx-auto mb-6 bg-[#B4B5AC]/30 rounded-full flex items-center justify-center">
+                        <Crown className="w-12 h-12 text-[#B4B5AC]" />
                       </div>
+                      <p className="text-[#2A2B26] text-2xl font-semibold">{selectedProductDetail.nome}</p>
+                      <p className="text-[#2A2B26]/60">Imagem Premium</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
 
-                      {/* Conteúdo do Produto */}
-                      <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                        <div>
-                          <h3 className="text-3xl md:text-4xl font-light text-[#2A2B26] mb-2">
-                            {produto.nome}
-                          </h3>
-                          <p className="text-xl text-[#B4B5AC] font-medium mb-6">
-                            {produto.estilo}
-                          </p>
-                        </div>
+            {/* Informações Detalhadas */}
+            <div className="space-y-8">
+              {/* Cabeçalho */}
+              <div>
+                <h1 className="text-4xl md:text-5xl font-light text-[#2A2B26] mb-4">
+                  {selectedProductDetail.nome}
+                </h1>
+                <p className="text-2xl text-[#B4B5AC] font-medium mb-6">
+                  {selectedProductDetail.estilo}
+                </p>
+                <p className="text-xl text-[#2A2B26]/80 leading-relaxed">
+                  {selectedProductDetail.descricaoCompleta}
+                </p>
+              </div>
 
-                        <p className="text-lg text-[#2A2B26]/80 leading-relaxed">
-                          {produto.descricao}
-                        </p>
-
-                        {/* Características */}
-                        <div className="space-y-3">
-                          <h4 className="text-lg font-semibold text-[#2A2B26]">Características:</h4>
-                          <div className="grid md:grid-cols-2 gap-2">
-                            {produto.caracteristicas.map((caracteristica, idx) => (
-                              <div key={idx} className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-[#B4B5AC] rounded-full"></div>
-                                <span className="text-[#2A2B26]/80 text-sm">{caracteristica}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Preço e Ação */}
-                        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between pt-6 border-t border-[#DEOEDA]">
-                          <div>
-                            <span className="text-2xl font-semibold text-[#B4B5AC]">{produto.preco}</span>
-                          </div>
-                          <div className="flex gap-3">
-                            <button 
-                              onClick={() => handleQuoteRequest(produto.nome)}
-                              className="bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white px-8 py-3 rounded-full hover:shadow-xl transition-all duration-300 font-medium transform hover:scale-105"
-                            >
-                              Solicitar Orçamento
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+              {/* Características */}
+              <div>
+                <h3 className="text-2xl font-semibold text-[#2A2B26] mb-6">Características</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {selectedProductDetail.caracteristicas.map((caracteristica: string, idx: number) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-[#B4B5AC] rounded-full"></div>
+                      <span className="text-[#2A2B26]/80">{caracteristica}</span>
                     </div>
                   ))}
                 </div>
-              </section>
-            )
-          })}
+              </div>
+
+              {/* Especificações Técnicas */}
+              {selectedProductDetail.especificacoes && (
+                <div>
+                  <h3 className="text-2xl font-semibold text-[#2A2B26] mb-6">Especificações Técnicas</h3>
+                  <div className="bg-[#FEF7F2] rounded-2xl p-6 space-y-4">
+                    {Object.entries(selectedProductDetail.especificacoes).map(([key, value]) => (
+                      <div key={key} className="flex justify-between items-center border-b border-[#DEOEDA] pb-2">
+                        <span className="font-medium text-[#2A2B26] capitalize">
+                          {key.replace(/([A-Z])/g, ' $1').trim()}:
+                        </span>
+                        <span className="text-[#2A2B26]/80">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Preço e Ação */}
+              <div className="bg-gradient-to-r from-[#FEF7F2] to-[#DEOEDA] rounded-2xl p-8">
+                <div className="flex flex-col sm:flex-row gap-6 items-center justify-between">
+                  <div>
+                    <p className="text-lg text-[#2A2B26]/80 mb-2">Preço</p>
+                    <span className="text-3xl font-bold text-[#B4B5AC]">{selectedProductDetail.preco}</span>
+                  </div>
+                  <button 
+                    onClick={() => handleQuoteRequest(selectedProductDetail.nome)}
+                    className="bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white px-10 py-4 rounded-full hover:shadow-xl transition-all duration-300 font-semibold text-lg transform hover:scale-105"
+                  >
+                    Solicitar Orçamento
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+
+  const renderProdutos = () => {
+    // Se um produto específico foi selecionado, mostrar página de detalhes
+    if (selectedProductDetail) {
+      return renderProductDetail()
+    }
+
+    return (
+      <div className="min-h-screen bg-[#FEF7F2] pt-24">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-light text-[#2A2B26] mb-4">
+              Conheça nossos Produtos
+            </h1>
+            <p className="text-xl text-[#2A2B26]/80">
+              Descubra nossa coleção exclusiva de mesas de jogos premium
+            </p>
+          </div>
+
+          {/* Filtros de Categoria */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {categorias.map(categoria => (
+              <button
+                key={categoria.id}
+                onClick={() => setSelectedCategory(categoria.id)}
+                className={`px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${ 
+                  selectedCategory === categoria.id
+                    ? 'bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white shadow-xl'
+                    : 'bg-white text-[#2A2B26] hover:bg-gradient-to-r hover:from-[#B4B5AC] hover:to-[#DEOEDA] hover:text-white border border-[#B4B5AC]/30 hover:shadow-lg'
+                }`}
+              >
+                {categoria.nome}
+              </button>
+            ))}
+          </div>
+
+          {/* Grid de Produtos - Cards Menores */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {produtosFiltrados.map((produto) => (
+              <div key={produto.id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden">
+                {/* Imagem do Produto */}
+                <div className="aspect-square overflow-hidden">
+                  {produto.imagem ? (
+                    <img 
+                      src={produto.imagem} 
+                      alt={produto.nome}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#DEOEDA]/30 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-16 h-16 mx-auto mb-4 bg-[#B4B5AC]/30 rounded-full flex items-center justify-center">
+                          <Crown className="w-8 h-8 text-[#B4B5AC]" />
+                        </div>
+                        <p className="text-[#2A2B26] text-lg font-semibold">{produto.nome}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Conteúdo do Card */}
+                <div className="p-6 space-y-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#2A2B26] mb-2">
+                      {produto.nome}
+                    </h3>
+                    <p className="text-[#B4B5AC] font-medium mb-3">
+                      {produto.estilo}
+                    </p>
+                    <p className="text-[#2A2B26]/80 text-sm leading-relaxed line-clamp-3">
+                      {produto.descricao}
+                    </p>
+                  </div>
+
+                  {/* Preço e Botões */}
+                  <div className="flex flex-col gap-3 pt-4 border-t border-[#DEOEDA]">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-semibold text-[#B4B5AC]">{produto.preco}</span>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <button 
+                        onClick={() => handleViewProduct(produto)}
+                        className="flex-1 bg-white border-2 border-[#B4B5AC] text-[#B4B5AC] px-4 py-2 rounded-full hover:bg-[#B4B5AC] hover:text-white transition-all duration-300 font-medium text-sm"
+                      >
+                        Ver Mais
+                      </button>
+                      <button 
+                        onClick={() => handleQuoteRequest(produto.nome)}
+                        className="flex-1 bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium text-sm transform hover:scale-105"
+                      >
+                        Solicitar Orçamento
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   const renderSobre = () => (
     <div className="min-h-screen bg-white pt-24">
