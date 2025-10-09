@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, ChevronLeft, ChevronRight, Search, Filter, Star, Award, Crown, ArrowLeft } from 'lucide-react'
+import { Menu, X, ChevronLeft, ChevronRight, Star, Award, Crown, ArrowLeft } from 'lucide-react'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home')
@@ -205,7 +205,8 @@ Aguardo retorno. Obrigado!`
         garantia: "3 anos",
         instalacao: "Incluída"
       },
-      preco: "Sob consulta"
+      preco: "Sob consulta",
+      imagem: "https://i.imgur.com/S1kJp5n.jpg"
     },
     {
       id: 8,
@@ -223,7 +224,8 @@ Aguardo retorno. Obrigado!`
         garantia: "3 anos",
         instalacao: "Incluída"
       },
-      preco: "Sob consulta"
+      preco: "Sob consulta",
+      imagem: "https://i.imgur.com/aLo4PJb.jpg"
     },
     {
       id: 9,
@@ -241,7 +243,8 @@ Aguardo retorno. Obrigado!`
         garantia: "3 anos",
         instalacao: "Incluída"
       },
-      preco: "Sob consulta"
+      preco: "Sob consulta",
+      imagem: "https://i.imgur.com/KzbucQ9.jpg"
     },
     {
       id: 10,
@@ -259,7 +262,8 @@ Aguardo retorno. Obrigado!`
         garantia: "2 anos",
         instalacao: "Incluída"
       },
-      preco: "Sob consulta"
+      preco: "Sob consulta",
+      imagem: "https://i.imgur.com/GLmqzV3.jpg"
     },
     {
       id: 11,
@@ -277,7 +281,8 @@ Aguardo retorno. Obrigado!`
         garantia: "3 anos",
         instalacao: "Incluída"
       },
-      preco: "Sob consulta"
+      preco: "Sob consulta",
+      imagem: "https://i.imgur.com/VduX1zf.jpg"
     },
     {
       id: 12,
@@ -295,7 +300,8 @@ Aguardo retorno. Obrigado!`
         garantia: "3 anos",
         instalacao: "Incluída"
       },
-      preco: "Sob consulta"
+      preco: "Sob consulta",
+      imagem: "https://i.imgur.com/fHMBOSN.jpg"
     }
   ]
 
@@ -339,11 +345,11 @@ Aguardo retorno. Obrigado!`
 
   const renderHome = () => (
     <div className="min-h-screen">
-      {/* Hero Section com Fundo da Imagem Por_Sol.jpg */}
+      {/* Hero Section com Fundo da Nova Imagem */}
       <section 
         className="relative min-h-screen flex flex-col items-center justify-center px-4"
         style={{
-          backgroundImage: `url('https://k6hrqrxuu8obbfwn.public.blob.vercel-storage.com/temp/499aa2c6-fe83-44b0-bc29-9aed5267a257.jpg')`,
+          backgroundImage: `url('https://i.imgur.com/tbx14ho.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -383,7 +389,7 @@ Aguardo retorno. Obrigado!`
           <div className="flex flex-col sm:flex-row gap-4">
             <button 
               onClick={() => handleTabChange('produtos')}
-              className="bg-[#B4B5AC] text-[#2A2B26] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#DEOEDA] transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-[#B4B5AC] to-[#8B8C83] text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-[#8B8C83] hover:to-[#6B6C63] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Solicitar Orçamento
             </button>
@@ -496,7 +502,7 @@ Aguardo retorno. Obrigado!`
             <div className="text-white space-y-8">
               {/* Badge de Destaque */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center gap-2 bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] px-4 py-2 rounded-full">
+                <div className="flex items-center gap-2 bg-gradient-to-r from-[#B4B5AC] to-[#D0EEDA] px-4 py-2 rounded-full">
                   <Crown className="w-5 h-5 text-[#2A2B26]" />
                   <span className="text-[#2A2B26] font-semibold text-sm">MAIS VENDIDO</span>
                 </div>
@@ -550,7 +556,7 @@ Aguardo retorno. Obrigado!`
               <div className="flex flex-col sm:flex-row gap-6 pt-8">
                 <button 
                   onClick={() => handleQuoteRequest('Mesa de Bilhar Opal')}
-                  className="group relative bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-[#2A2B26] px-10 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
+                  className="group relative bg-gradient-to-r from-[#B4B5AC] to-[#8B8C83] text-white px-10 py-4 rounded-full text-lg font-bold hover:from-[#8B8C83] hover:to-[#6B6C63] hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
                 >
                   <span className="relative z-10">Solicitar Orçamento</span>
                   <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -564,10 +570,10 @@ Aguardo retorno. Obrigado!`
               <div className="relative group">
                 {/* Fundo com Gradiente e Efeitos */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#B4B5AC]/20 to-transparent rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
-                <div className="absolute inset-0 bg-gradient-to-tl from-[#DEOEDA]/10 to-transparent rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-tl from-[#D0EEDA]/10 to-transparent rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
                 
                 {/* Container Principal da Imagem */}
-                <div className="relative bg-gradient-to-br from-[#FEF7F2] to-[#DEOEDA] p-8 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+                <div className="relative bg-gradient-to-br from-[#FEF7F2] to-[#D0EEDA] p-8 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-500">
                   {/* Imagem da Mesa Opal */}
                   <div className="aspect-square rounded-2xl overflow-hidden group-hover:scale-105 transition-transform duration-500">
                     <img 
@@ -578,7 +584,7 @@ Aguardo retorno. Obrigado!`
                   </div>
                   
                   {/* Badge de Qualidade */}
-                  <div className="absolute -top-4 -right-4 bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-[#2A2B26] px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                  <div className="absolute -top-4 -right-4 bg-gradient-to-r from-[#B4B5AC] to-[#D0EEDA] text-[#2A2B26] px-4 py-2 rounded-full font-bold text-sm shadow-lg">
                     PREMIUM
                   </div>
                 </div>
@@ -646,7 +652,7 @@ Aguardo retorno. Obrigado!`
                         </p>
                         <button 
                           onClick={() => handleQuoteRequest(`Mesa ${produto.nome}`)}
-                          className="bg-[#B4B5AC] text-white px-6 py-3 rounded-full hover:bg-[#2A2B26] transition-all duration-300 font-medium"
+                          className="bg-gradient-to-r from-[#B4B5AC] to-[#8B8C83] text-white px-6 py-3 rounded-full hover:from-[#8B8C83] hover:to-[#6B6C63] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
                           Solicitar Orçamento
                         </button>
@@ -678,7 +684,7 @@ Aguardo retorno. Obrigado!`
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-[#B4B5AC]' : 'bg-[#DEOEDA]'
+                    index === currentSlide ? 'bg-[#B4B5AC]' : 'bg-[#D0EEDA]'
                   }`}
                 />
               ))}
@@ -841,7 +847,7 @@ Aguardo retorno. Obrigado!`
           </p>
           <button 
             onClick={() => handleQuoteRequest('Consulta Geral')}
-            className="bg-[#B4B5AC] text-[#2A2B26] px-12 py-4 rounded-full text-lg font-medium hover:bg-[#FEF7F2] transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-to-r from-[#B4B5AC] to-[#8B8C83] text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-[#8B8C83] hover:to-[#6B6C63] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Solicitar Orçamento
           </button>
@@ -877,7 +883,7 @@ Aguardo retorno. Obrigado!`
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full bg-[#DEOEDA]/30 flex items-center justify-center">
+                  <div className="w-full h-full bg-[#D0EEDA]/30 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-24 h-24 mx-auto mb-6 bg-[#B4B5AC]/30 rounded-full flex items-center justify-center">
                         <Crown className="w-12 h-12 text-[#B4B5AC]" />
@@ -924,7 +930,7 @@ Aguardo retorno. Obrigado!`
                   <h3 className="text-2xl font-semibold text-[#2A2B26] mb-6">Especificações Técnicas</h3>
                   <div className="bg-[#FEF7F2] rounded-2xl p-6 space-y-4">
                     {Object.entries(selectedProductDetail.especificacoes).map(([key, value]) => (
-                      <div key={key} className="flex justify-between items-center border-b border-[#DEOEDA] pb-2">
+                      <div key={key} className="flex justify-between items-center border-b border-[#D0EEDA] pb-2">
                         <span className="font-medium text-[#2A2B26] capitalize">
                           {key.replace(/([A-Z])/g, ' $1').trim()}:
                         </span>
@@ -936,7 +942,7 @@ Aguardo retorno. Obrigado!`
               )}
 
               {/* Preço e Ação */}
-              <div className="bg-gradient-to-r from-[#FEF7F2] to-[#DEOEDA] rounded-2xl p-8">
+              <div className="bg-gradient-to-r from-[#FEF7F2] to-[#D0EEDA] rounded-2xl p-8">
                 <div className="flex flex-col sm:flex-row gap-6 items-center justify-between">
                   <div>
                     <p className="text-lg text-[#2A2B26]/80 mb-2">Preço</p>
@@ -944,7 +950,7 @@ Aguardo retorno. Obrigado!`
                   </div>
                   <button 
                     onClick={() => handleQuoteRequest(selectedProductDetail.nome)}
-                    className="bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white px-10 py-4 rounded-full hover:shadow-xl transition-all duration-300 font-semibold text-lg transform hover:scale-105"
+                    className="bg-gradient-to-r from-[#B4B5AC] to-[#8B8C83] text-white px-10 py-4 rounded-full hover:from-[#8B8C83] hover:to-[#6B6C63] hover:shadow-xl transition-all duration-300 font-semibold text-lg transform hover:scale-105"
                   >
                     Solicitar Orçamento
                   </button>
@@ -983,8 +989,8 @@ Aguardo retorno. Obrigado!`
                 onClick={() => setSelectedCategory(categoria.id)}
                 className={`px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${ 
                   selectedCategory === categoria.id
-                    ? 'bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white shadow-xl'
-                    : 'bg-white text-[#2A2B26] hover:bg-gradient-to-r hover:from-[#B4B5AC] hover:to-[#DEOEDA] hover:text-white border border-[#B4B5AC]/30 hover:shadow-lg'
+                    ? 'bg-gradient-to-r from-[#B4B5AC] to-[#8B8C83] text-white shadow-xl'
+                    : 'bg-white text-[#2A2B26] hover:bg-gradient-to-r hover:from-[#B4B5AC] hover:to-[#8B8C83] hover:text-white border border-[#B4B5AC]/30 hover:shadow-lg'
                 }`}
               >
                 {categoria.nome}
@@ -1005,7 +1011,7 @@ Aguardo retorno. Obrigado!`
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full bg-[#DEOEDA]/30 flex items-center justify-center">
+                    <div className="w-full h-full bg-[#D0EEDA]/30 flex items-center justify-center">
                       <div className="text-center">
                         <div className="w-16 h-16 mx-auto mb-4 bg-[#B4B5AC]/30 rounded-full flex items-center justify-center">
                           <Crown className="w-8 h-8 text-[#B4B5AC]" />
@@ -1031,7 +1037,7 @@ Aguardo retorno. Obrigado!`
                   </div>
 
                   {/* Preço e Botões */}
-                  <div className="flex flex-col gap-3 pt-4 border-t border-[#DEOEDA]">
+                  <div className="flex flex-col gap-3 pt-4 border-t border-[#D0EEDA]">
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-semibold text-[#B4B5AC]">{produto.preco}</span>
                     </div>
@@ -1042,12 +1048,6 @@ Aguardo retorno. Obrigado!`
                         className="flex-1 bg-white border-2 border-[#B4B5AC] text-[#B4B5AC] px-4 py-2 rounded-full hover:bg-[#B4B5AC] hover:text-white transition-all duration-300 font-medium text-sm"
                       >
                         Ver Mais
-                      </button>
-                      <button 
-                        onClick={() => handleQuoteRequest(produto.nome)}
-                        className="flex-1 bg-gradient-to-r from-[#B4B5AC] to-[#DEOEDA] text-white px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium text-sm transform hover:scale-105"
-                      >
-                        Solicitar Orçamento
                       </button>
                     </div>
                   </div>
@@ -1196,7 +1196,7 @@ Aguardo retorno. Obrigado!`
         </div>
 
         {/* Menu Lateral */}
-        <div className={`fixed top-0 left-0 h-full w-80 bg-gradient-to-b from-white via-[#FEF7F2] to-[#DEOEDA] shadow-2xl transform transition-transform duration-300 z-50 ${
+        <div className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 z-50 ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}>
           <div className="p-6">
@@ -1210,7 +1210,7 @@ Aguardo retorno. Obrigado!`
               </button>
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 hover:bg-[#DEOEDA] rounded-lg"
+                className="p-2 hover:bg-[#D0EEDA] rounded-lg"
               >
                 <X className="w-6 h-6 text-[#2A2B26]" />
               </button>
@@ -1223,7 +1223,7 @@ Aguardo retorno. Obrigado!`
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'home' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#DEOEDA]'
+                  activeTab === 'home' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
                 }`}
               >
                 Home
@@ -1234,7 +1234,7 @@ Aguardo retorno. Obrigado!`
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'produtos' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#DEOEDA]'
+                  activeTab === 'produtos' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
                 }`}
               >
                 Produtos
@@ -1245,7 +1245,7 @@ Aguardo retorno. Obrigado!`
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'sobre' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#DEOEDA]'
+                  activeTab === 'sobre' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
                 }`}
               >
                 Sobre
@@ -1256,7 +1256,7 @@ Aguardo retorno. Obrigado!`
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'contato' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#DEOEDA]'
+                  activeTab === 'contato' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
                 }`}
               >
                 Contato
@@ -1282,7 +1282,7 @@ Aguardo retorno. Obrigado!`
               <h3 className="text-2xl font-semibold text-[#2A2B26]">Solicitar Orçamento</h3>
               <button
                 onClick={() => setShowQuoteForm(false)}
-                className="p-2 hover:bg-[#DEOEDA] rounded-lg"
+                className="p-2 hover:bg-[#D0EEDA] rounded-lg"
               >
                 <X className="w-6 h-6 text-[#2A2B26]" />
               </button>
@@ -1295,7 +1295,7 @@ Aguardo retorno. Obrigado!`
                   type="text" 
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 border border-[#DEOEDA] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B4B5AC]" 
+                  className="w-full px-4 py-3 border border-[#D0EEDA] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B4B5AC]" 
                   placeholder="Seu nome completo"
                   required
                 />
@@ -1307,7 +1307,7 @@ Aguardo retorno. Obrigado!`
                   type="text" 
                   value={formData.product}
                   onChange={(e) => setFormData({...formData, product: e.target.value})}
-                  className="w-full px-4 py-3 border border-[#DEOEDA] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B4B5AC]" 
+                  className="w-full px-4 py-3 border border-[#D0EEDA] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B4B5AC]" 
                   placeholder="Qual produto você deseja?"
                   required
                 />
@@ -1319,7 +1319,7 @@ Aguardo retorno. Obrigado!`
                   rows={4} 
                   value={formData.observations}
                   onChange={(e) => setFormData({...formData, observations: e.target.value})}
-                  className="w-full px-4 py-3 border border-[#DEOEDA] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B4B5AC]"
+                  className="w-full px-4 py-3 border border-[#D0EEDA] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B4B5AC]"
                   placeholder="Descreva detalhes específicos, medidas, cores, ou qualquer observação que possa ajudar no orçamento..."
                 />
               </div>
