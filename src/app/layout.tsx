@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Criado com a Lasy",
-  description: "Projeto criado com Lasy AI",
+  title: "Bretda - Elevando o entretenimento para um patamar de luxo",
+  description: "Mesas de bilhar, pebolim, tênis de mesa e shuffleboard premium. Excelência na sua diversão com design escultural e materiais nobres.",
 };
 
 export default function RootLayout({

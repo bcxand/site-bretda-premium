@@ -1199,7 +1199,7 @@ Aguardo retorno. Obrigado!`
         <div className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 z-50 ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}>
-          <div className="p-6">
+          <div className="p-6 bg-white h-full">
             <div className="flex items-center justify-between mb-8">
               <button onClick={() => { handleTabChange('home'); setIsMenuOpen(false); }}>
                 <img 
@@ -1216,14 +1216,14 @@ Aguardo retorno. Obrigado!`
               </button>
             </div>
             
-            <nav className="space-y-4">
+            <nav className="space-y-4 bg-white">
               <button
                 onClick={() => {
                   handleTabChange('home')
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'home' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
+                  activeTab === 'home' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA] bg-white'
                 }`}
               >
                 Home
@@ -1234,7 +1234,7 @@ Aguardo retorno. Obrigado!`
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'produtos' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
+                  activeTab === 'produtos' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA] bg-white'
                 }`}
               >
                 Produtos
@@ -1245,7 +1245,7 @@ Aguardo retorno. Obrigado!`
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'sobre' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
+                  activeTab === 'sobre' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA] bg-white'
                 }`}
               >
                 Sobre
@@ -1256,7 +1256,7 @@ Aguardo retorno. Obrigado!`
                   setIsMenuOpen(false)
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  activeTab === 'contato' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA]'
+                  activeTab === 'contato' ? 'bg-[#B4B5AC] text-white' : 'text-[#2A2B26] hover:bg-[#D0EEDA] bg-white'
                 }`}
               >
                 Contato
