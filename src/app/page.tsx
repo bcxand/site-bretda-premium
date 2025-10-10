@@ -934,7 +934,7 @@ Aguardo retorno. Obrigado!`
                         <span className="font-medium text-[#2A2B26] capitalize">
                           {key.replace(/([A-Z])/g, ' $1').trim()}:
                         </span>
-                        <span className="text-[#2A2B26]/80">{value}</span>
+                        <span className="text-[#2A2B26]/80">{String(value)}</span>
                       </div>
                     ))}
                   </div>
