@@ -4,6 +4,7 @@ import "./globals.css";
 // Import all available fonts for AI usage
 import "../lib/fonts";
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import PageTransition from '@/components/PageTransition';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
         <WhatsAppFloat />
       </body>
     </html>
